@@ -1,83 +1,65 @@
 import { Injectable } from '@angular/core';
 
-export interface Message {
-  fromName: string;
-  subject: string;
-  date: string;
+export interface Flower {
   id: number;
-  read: boolean;
+  url: string;
+  croppedImage: CroppedImage[];
+}
+
+export interface CroppedImage {
+  id: number;
+  url: string;
+  prediction: Stage;
+}
+
+export enum Stage {
+  FIRST = "stage1",
+  SECOND = "stage2",
+  THIRD = "stage3",
+  FOURTH = "stage4",
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  public messages: Message[] = [
+  public flowers: Flower[] = [
     {
-      fromName: 'Matt Chorsey',
-      subject: 'New event: Trip to Vegas',
-      date: '9:32 AM',
       id: 0,
-      read: false
+      url: '../mocks/img/full/carnations_00.jpg',
+      croppedImage: [
+        {
+          id: 0,
+          url: '../mocks/img/cropped/flower_00.jpg',
+          prediction: Stage.FIRST,
+        },
+        {
+          id: 1,
+          url: '../mocks/img/cropped/flower_01.jpg',
+          prediction: Stage.SECOND,
+        },
+        {
+          id: 2,
+          url: '../mocks/img/cropped/flower_02.jpg',
+          prediction: Stage.THIRD,
+        },
+        {
+          id: 3,
+          url: '../mocks/img/cropped/flower_03.jpg',
+          prediction: Stage.FOURTH,
+        },
+      ],
     },
-    {
-      fromName: 'Lauren Ruthford',
-      subject: 'Long time no chat',
-      date: '6:12 AM',
-      id: 1,
-      read: false
-    },
-    {
-      fromName: 'Jordan Firth',
-      subject: 'Report Results',
-      date: '4:55 AM',
-      id: 2,
-      read: false
-    },
-    {
-      fromName: 'Bill Thomas',
-      subject: 'The situation',
-      date: 'Yesterday',
-      id: 3,
-      read: false
-    },
-    {
-      fromName: 'Joanne Pollan',
-      subject: 'Updated invitation: Swim lessons',
-      date: 'Yesterday',
-      id: 4,
-      read: false
-    },
-    {
-      fromName: 'Andrea Cornerston',
-      subject: 'Last minute ask',
-      date: 'Yesterday',
-      id: 5,
-      read: false
-    },
-    {
-      fromName: 'Moe Chamont',
-      subject: 'Family Calendar - Version 1',
-      date: 'Last Week',
-      id: 6,
-      read: false
-    },
-    {
-      fromName: 'Kelly Richardson',
-      subject: 'Placeholder Headhots',
-      date: 'Last Week',
-      id: 7,
-      read: false
-    }
+
   ];
 
   constructor() { }
 
-  public getMessages(): Message[] {
-    return this.messages;
+  public getFlowers(): Flower[] {
+    return this.flowers;
   }
 
-  public getMessageById(id: number): Message {
-    return this.messages[id];
+  public getFlowerById(id: number): Flower {
+    return this.flowers[id];
   }
 }
