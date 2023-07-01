@@ -5,11 +5,11 @@ import { IonicModule, Platform } from '@ionic/angular';
 import { DataService, Flower } from '../services/data.service';
 
 @Component({
-  selector: 'app-view-message',
-  templateUrl: './view-message.page.html',
-  styleUrls: ['./view-message.page.scss'],
+  selector: 'app-view-flower',
+  templateUrl: './view-flower.page.html',
+  styleUrls: ['./view-flower.page.scss'],
 })
-export class ViewMessagePage implements OnInit {
+export class ViewFlowerPage implements OnInit {
   public flower!: Flower;
   private data = inject(DataService);
   private activatedRoute = inject(ActivatedRoute);
