@@ -8,6 +8,10 @@ ion-footer ion-title {
   font-weight: normal;
 }
 
+ion-card {
+  width: 100%;
+}
+
 .flower-content {
   display: flex;
   width: 100%;
@@ -28,21 +32,3 @@ ion-footer ion-title {
   width: 50%;
   text-align: center;
 }
-
-/*.flower-container {
-  display: flex;
-  width: 100%;
-  max-height: 25%;
-  border: 5px;
-  border-color: black;
-  border-radius: 10%;
-  background-color: aqua;
-}
-
-
-.flower__description {
-  height: 100%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}*/
