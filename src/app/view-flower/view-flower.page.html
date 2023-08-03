@@ -8,19 +8,30 @@
 
 <ion-content [fullscreen]="true" *ngIf="flower">
   <ion-item>
-    <ion-icon aria-hidden="true" name="person-circle" color="primary"></ion-icon>
-    <ion-label class="ion-text-wrap">
-      <h2>
-        {{ flower.url }}
-      </h2>
-      <h3>To: <ion-note>Me</ion-note></h3>
-    </ion-label>
+    <ion-card>
+      <ion-card-content class="view-flower__main-container">
+        <ion-img class="view-flower__image" src="{{ flower.url }}" alt="Flowers"></ion-img>
+      </ion-card-content>
+    </ion-card>
   </ion-item>
-  
-  <div class="ion-padding">
+
+  <div class="view-flower__id">
     <h1>{{ flower.id }}</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
   </div>
+  <ion-list>
+    <ion-card *ngFor="let cropped of flower.croppedImage" class="view-prediction__card">
+      <ion-card-content class="view-prediction__content">
+        <ion-img class="view-prediction__image" src="{{ cropped.url }}" alt="cropped"></ion-img>
+        <ion-radio-group class="view-prediction__radio-group" value="stages">
+          <ion-radio value="first" labelPlacement="end">First</ion-radio><br />
+          <ion-radio value="second" labelPlacement="end">Second</ion-radio><br />
+          <ion-radio value="third" labelPlacement="end">Third</ion-radio><br />
+          <ion-radio value="fourth" labelPlacement="end">Fourth</ion-radio>
+        </ion-radio-group>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+  <ion-button class="save-button">
+    Save
+  </ion-button>
 </ion-content>

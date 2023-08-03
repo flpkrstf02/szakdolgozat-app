@@ -1,7 +1,7 @@
-/*ion-item {
-  --padding-start: 0;
-  --inner-padding-end: 0;
-}*/
+ion-item::part(native) {
+  background-color: #ecefff;
+  padding: 0;
+}
 
 ion-footer ion-title {
   font-size: 11px;

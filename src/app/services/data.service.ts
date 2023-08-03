@@ -27,34 +27,38 @@ export class DataService {
   public flowers: Flower[] = [
     {
       id: 0,
-      url: /*'../../mocks/img/full/carnations_00.jpg'*/ 'https://picsum.photos/200/300',
+      url: /*'../../mocks/img/full/carnations_00.jpg'*/ 'https://picsum.photos/300/300',
       override: true,
       croppedImage: [
         {
           id: 0,
-          url: '../mocks/img/cropped/flower_00.jpg',
+          //url: '../mocks/img/cropped/flower_00.jpg',
+          url: /*'../../mocks/img/full/carnations_00.jpg'*/ 'https://picsum.photos/200/200',
           prediction: Stage.FIRST,
         },
         {
           id: 1,
-          url: '../mocks/img/cropped/flower_01.jpg',
+          //url: '../mocks/img/cropped/flower_01.jpg',
+          url: /*'../../mocks/img/full/carnations_00.jpg'*/ 'https://picsum.photos/200/200',
           prediction: Stage.SECOND,
         },
         {
           id: 2,
-          url: '../mocks/img/cropped/flower_02.jpg',
+          //url: '../mocks/img/cropped/flower_02.jpg',
+          url: /*'../../mocks/img/full/carnations_00.jpg'*/ 'https://picsum.photos/200/300',
           prediction: Stage.THIRD,
         },
         {
           id: 3,
-          url: '../mocks/img/cropped/flower_03.jpg',
+          //url: '../mocks/img/cropped/flower_03.jpg',
+          url: /*'../../mocks/img/full/carnations_00.jpg'*/ 'https://picsum.photos/300/200',
           prediction: Stage.FOURTH,
         },
       ],
     },
     {
       id: 0,
-      url: /*'../../mocks/img/full/carnations_00.jpg'*/ 'https://picsum.photos/200/300',
+      url: /*'../../mocks/img/full/carnations_00.jpg'*/ 'https://picsum.photos/300/300',
       override: false,
       croppedImage: [
         {
@@ -81,7 +85,7 @@ export class DataService {
     },
     {
       id: 0,
-      url: /*'../../mocks/img/full/carnations_00.jpg'*/ 'https://picsum.photos/200/300',
+      url: /*'../../mocks/img/full/carnations_00.jpg'*/ 'https://picsum.photos/300/300',
       override: false,
       croppedImage: [
         {
@@ -108,7 +112,7 @@ export class DataService {
     },
     {
       id: 0,
-      url: /*'../../mocks/img/full/carnations_00.jpg'*/ 'https://picsum.photos/200/300',
+      url: /*'../../mocks/img/full/carnations_00.jpg'*/ 'https://picsum.photos/300/300',
       override: false,
       croppedImage: [
         {
@@ -135,7 +139,7 @@ export class DataService {
     },
     {
       id: 0,
-      url: /*'../../mocks/img/full/carnations_00.jpg'*/ 'https://picsum.photos/200/300',
+      url: /*'../../mocks/img/full/carnations_00.jpg'*/ 'https://picsum.photos/300/300',
       override: false,
       croppedImage: [
         {

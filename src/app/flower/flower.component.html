@@ -1,4 +1,4 @@
-<ion-item class="flower-container" *ngIf="flower" [routerLink]="'/flower/' + flower.id" [detail]="false">
+<ion-item *ngIf="flower" [routerLink]="'/flower/' + flower.id" [detail]="false">
   <ion-card>
     <ion-card-content class="flower-content" [ngClass]="flower.override ? 'flower-content__green' : 'flower-content__red'">
       <div *ngIf="flower.override" class="flower__text">
