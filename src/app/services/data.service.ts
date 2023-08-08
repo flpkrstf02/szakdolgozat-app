@@ -1,24 +1,6 @@
 import { Injectable } from '@angular/core';
-
-export interface Flower {
-  id: number;
-  url: string;
-  override: boolean;
-  croppedImage: CroppedImage[];
-}
-
-export interface CroppedImage {
-  id: number;
-  url: string;
-  prediction: Stage;
-}
-
-export enum Stage {
-  FIRST = "stage1",
-  SECOND = "stage2",
-  THIRD = "stage3",
-  FOURTH = "stage4",
-}
+import { Flower } from '../data-models/Flower';
+import { Stage } from '../data-models/Stage';
 
 @Injectable({
   providedIn: 'root'

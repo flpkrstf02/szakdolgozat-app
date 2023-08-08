@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" *ngIf="flower">
+<ion-content [fullscreen]="true" *ngIf="flower" [formGroup]="form">
   <ion-item>
     <ion-card>
       <ion-card-content class="view-flower__main-container">
@@ -18,20 +18,26 @@
   <div class="view-flower__id">
     <h1>{{ flower.id }}</h1>
   </div>
-  <ion-list>
-    <ion-card *ngFor="let cropped of flower.croppedImage" class="view-prediction__card">
+  <ion-list formArrayName="croppedItem">
+    <ion-card *ngFor="let item of croppedItem.controls" class="view-prediction__card">
       <ion-card-content class="view-prediction__content">
-        <ion-img class="view-prediction__image" src="{{ cropped.url }}" alt="cropped"></ion-img>
-        <ion-radio-group class="view-prediction__radio-group" value="stages">
-          <ion-radio value="first" labelPlacement="end">First</ion-radio><br />
-          <ion-radio value="second" labelPlacement="end">Second</ion-radio><br />
-          <ion-radio value="third" labelPlacement="end">Third</ion-radio><br />
-          <ion-radio value="fourth" labelPlacement="end">Fourth</ion-radio>
+        <ion-img class="view-prediction__image" src="{{ getUrl(item) }}" alt="cropped"></ion-img>
+        <ion-radio-group class="view-prediction__radio-group" (ionChange)="radioGroupChange($event,item)" value="{{ getPrediction(item) }}">
+          <ion-radio 
+            *ngFor="let stage of stages" 
+            value="{{stage}}" 
+            labelPlacement="end"
+            >{{ stage }}
+          </ion-radio>
+          <br />
         </ion-radio-group>
       </ion-card-content>
     </ion-card>
   </ion-list>
-  <ion-button class="save-button">
+  <ion-button class="save-button" (click)="submit()">
     Save
   </ion-button>
+  <div>
+     {{ form.getRawValue() | json }}
+  </div>
 </ion-content>

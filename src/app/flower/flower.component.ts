@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
 import { Platform } from '@ionic/angular';
-import { Flower } from '../services/data.service';
+import { Flower } from '../data-models/Flower';
 
 @Component({
   selector: 'app-flower',
