@@ -10,6 +10,7 @@ import { Flower } from '../data-models/Flower';
 })
 export class HomePage {
   private data = inject(DataService);
+  public flowers!: Flower[];
   constructor() {}
 
   refresh(ev: any) {
@@ -19,6 +20,9 @@ export class HomePage {
   }
 
   getFlowers(): Flower[] {
-    return this.data.getFlowers();
+    this.data.getFlowers().subscribe((response: Flower[]) => {
+      this.flowers = response;
+    });
+    return this.flowers;
   }
 }

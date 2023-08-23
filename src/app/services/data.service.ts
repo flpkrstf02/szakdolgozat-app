@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Flower } from '../data-models/Flower';
 import { Stage } from '../data-models/Stage';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders} from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
@@ -198,14 +200,26 @@ export class DataService {
     },
 
   ];
+  private baseUrl: string;
 
-  constructor() { }
-
-  public getFlowers(): Flower[] {
-    return this.flowers;
+  constructor(private http: HttpClient) {
+    this.baseUrl = 'https://api.mocki.io/v2/c8af29f6';
   }
 
-  public getFlowerById(id: number): Flower {
-    return this.flowers[id];
+  public getFlowerById(id: number): any {
+    return this.http.get(this.baseUrl + '/flowers/' + id);
+  }
+
+  public getFlowers(): Observable<Array<Flower>> {
+    return this.http.get<Array<Flower>>(this.baseUrl + '/flowers');
+  }
+  public updateFlower(flower: Flower, id: number): Observable<Object> {
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': '/'
+      })
+    }
+    return this.http.put(this.baseUrl + '/flowers/' + id, JSON.stringify(flower), options);
   }
 }

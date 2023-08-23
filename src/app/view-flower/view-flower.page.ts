@@ -25,7 +25,9 @@ export class ViewFlowerPage implements OnInit {
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
-    this.flower = this.data.getFlowerById(parseInt(id, 10));
+    this.data.getFlowerById(parseInt(id, 10)).subscribe((response: Flower) => {
+      this.flower = response;
+    })
     this.initForm();
   }
 
