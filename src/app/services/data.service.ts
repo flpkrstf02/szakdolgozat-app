@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http'
   providedIn: 'root'
 })
 export class DataService {
-  public flowers: Flower[] = [
+  /*public flowers: Flower[] = [
     {
       id: 0,
       url: 'assets/mocks/img/full/carnations_00.jpg',
@@ -199,25 +199,40 @@ export class DataService {
       ],
     },
 
-  ];
+  ];*/
   private baseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = 'https://api.mocki.io/v2/c8af29f6';
+    this.baseUrl = 'http://localhost:5280';
   }
 
   public getFlowerById(id: number): any {
-    return this.http.get(this.baseUrl + '/flowers/' + id);
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': '/',
+        'Access-Control-Allow-Origin': '*'
+      })
+    }
+    return this.http.get(this.baseUrl + '/flowers/' + id, options);
   }
 
   public getFlowers(): Observable<Array<Flower>> {
-    return this.http.get<Array<Flower>>(this.baseUrl + '/flowers');
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': '/',
+        'Access-Control-Allow-Origin': '*'
+      })
+    }
+    return this.http.get<Array<Flower>>(this.baseUrl + '/flowers', options);
   }
   public updateFlower(flower: Flower, id: number): Observable<Object> {
     let options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Accept': '/'
+        'Accept': '/',
+        'Access-Control-Allow-Origin': '*'
       })
     }
     return this.http.put(this.baseUrl + '/flowers/' + id, JSON.stringify(flower), options);

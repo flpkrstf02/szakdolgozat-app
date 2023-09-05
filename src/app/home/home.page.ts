@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { RefresherCustomEvent } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 import { Flower } from '../data-models/Flower';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -11,12 +12,14 @@ import { Flower } from '../data-models/Flower';
 export class HomePage {
   private data = inject(DataService);
   public flowers!: Flower[];
-  constructor() {}
+  constructor() {
+    this.getFlowers();
+  }
 
   refresh(ev: any) {
     setTimeout(() => {
       (ev as RefresherCustomEvent).detail.complete();
-    }, 3000);
+    }, 30000);
   }
 
   getFlowers(): Flower[] {
