@@ -27,19 +27,18 @@ export class ViewFlowerPage implements OnInit {
     const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
     this.data.getFlowerById(parseInt(id, 10)).subscribe((response: Flower) => {
       this.flower = response;
-    })
-    this.initForm();
+      this.initForm();
+    });
   }
 
   public initForm() {
     this.form = this.fb.group({
       croppedItem: this.fb.array([])
     })
-
     this.flower.croppedImage.forEach(image => {
       const imageGroup = this.fb.group({
         id: [image.id],
-        url: [image.url],
+        image: [image.image],
         prediction: [image.prediction]
       });
       this.croppedItem.push(imageGroup);
@@ -55,7 +54,7 @@ export class ViewFlowerPage implements OnInit {
   }
   
   public getUrl(item: any){
-    return item.getRawValue()['url'];
+    return item.getRawValue()['image'];
   }
 
   public getPrediction(item: any){
@@ -69,6 +68,7 @@ export class ViewFlowerPage implements OnInit {
         image.prediction = formRawValue['croppedItem'].find(value => value['id'] === image.id)['prediction'];
       }
     })
+    this.data.updateFlower(this.flower,this.flower.id).subscribe();
   }
 
   getBackButtonText() {

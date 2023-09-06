@@ -1,13 +1,13 @@
 <ion-item *ngIf="flower" [routerLink]="'/flower/' + flower.id" [detail]="false">
   <ion-card>
-    <ion-card-content class="flower-content" [ngClass]="flower.override ? 'flower-content__green' : 'flower-content__red'">
-      <div *ngIf="flower.override" class="flower__text">
+    <ion-card-content class="flower-content" [ngClass]="flower.isOverrided ? 'flower-content__green' : 'flower-content__red'">
+      <div *ngIf="flower.isOverrided" class="flower__text">
         Felülbírálva
       </div>
-      <div *ngIf="!flower.override" class="flower__text">
+      <div *ngIf="!flower.isOverrided" class="flower__text">
         Felülbírálásra vár
       </div>
-      <ion-img class="flower__image" src="{{ flower.url }}" alt="Flowers" ></ion-img>
+      <ion-img class="flower__image" src="{{ flower.image }}" alt="Flowers" ></ion-img>
     </ion-card-content>
   </ion-card>
 </ion-item>

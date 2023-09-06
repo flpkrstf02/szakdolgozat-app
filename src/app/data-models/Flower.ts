@@ -2,7 +2,7 @@ import { CroppedImage } from "./CroppedImage";
 
 export interface Flower {
     id: number;
-    url: Int8Array;
-    override: boolean;
+    image: Int8Array;
+    isOverrided: boolean;
     croppedImage: CroppedImage[];
 }
