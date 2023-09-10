@@ -3,16 +3,15 @@ import { ActivatedRoute } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
-import { CroppedForm } from '../data-models/CroppedForm';
 import { Flower } from '../data-models/Flower';
 import { Stage } from '../data-models/Stage';
 
 @Component({
   selector: 'app-view-flower',
-  templateUrl: './view-flower.page.html',
-  styleUrls: ['./view-flower.page.scss'],
+  templateUrl: './view-flower.component.html',
+  styleUrls: ['./view-flower.component.scss'],
 })
-export class ViewFlowerPage implements OnInit {
+export class ViewFlowerComponent implements OnInit {
   public flower!: Flower;
   private data = inject(DataService);
   private activatedRoute = inject(ActivatedRoute);

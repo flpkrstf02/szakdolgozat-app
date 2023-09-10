@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ViewFlowerPage } from './view-flower.page';
+import { ViewFlowerPage } from './view-flower.component';
 
 import { IonicModule } from '@ionic/angular';
 

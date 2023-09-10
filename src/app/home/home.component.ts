@@ -2,14 +2,13 @@ import { Component, inject } from '@angular/core';
 import { RefresherCustomEvent } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 import { Flower } from '../data-models/Flower';
-import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  templateUrl: 'home.component.html',
+  styleUrls: ['home.component.scss'],
 })
-export class HomePage {
+export class HomeComponent {
   private data = inject(DataService);
   public flowers!: Flower[];
   constructor() {

@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 
-import { HomePage } from './home.page';
-import { HomePageRoutingModule } from './home-routing.module';
+import { HomeComponent } from './home.component';
+import { HomeComponentRoutingModule } from './home-routing.module';
 import { FlowerComponentModule } from '../flower/flower.module';
 
 @NgModule({
@@ -13,8 +13,8 @@ import { FlowerComponentModule } from '../flower/flower.module';
     FormsModule,
     IonicModule,
     FlowerComponentModule,
-    HomePageRoutingModule
+    HomeComponentRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [HomeComponent]
 })
 export class HomePageModule {}

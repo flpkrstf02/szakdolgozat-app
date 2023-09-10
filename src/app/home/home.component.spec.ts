@@ -4,19 +4,19 @@ import { IonicModule } from '@ionic/angular';
 
 import { FlowerComponentModule } from '../flower/flower.module';
 
-import { HomePage } from './home.page';
+import { HomeComponent } from './home.component';
 
-describe('HomePage', () => {
-  let component: HomePage;
-  let fixture: ComponentFixture<HomePage>;
+describe('HomeComponent', () => {
+  let component: HomeComponent;
+  let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomePage],
+      declarations: [HomeComponent],
       imports: [IonicModule.forRoot(), FlowerComponentModule, RouterModule.forRoot([])]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HomePage);
+    fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

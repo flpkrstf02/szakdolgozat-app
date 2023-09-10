@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ViewFlowerPage } from './view-flower.page';
+import { ViewFlowerComponent } from './view-flower.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ViewFlowerPage
+    component: ViewFlowerComponent
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ViewFlowerPageRoutingModule {}
+export class ViewFloweromponentRoutingModule {}
