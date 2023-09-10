@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Platform } from '@ionic/angular';
+import { Platform, NavController  } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { Flower } from '../data-models/Flower';
@@ -20,7 +20,7 @@ export class ViewFlowerComponent implements OnInit {
   public form!: FormGroup;
   public stages: Stage[] = [Stage.FIRST, Stage.SECOND, Stage.THIRD, Stage.FOURTH];
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private navCtrl: NavController) { }
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
@@ -68,6 +68,7 @@ export class ViewFlowerComponent implements OnInit {
       }
     })
     this.data.updateFlower(this.flower,this.flower.id).subscribe();
+    this.navCtrl.back();
   }
 
   getBackButtonText() {
