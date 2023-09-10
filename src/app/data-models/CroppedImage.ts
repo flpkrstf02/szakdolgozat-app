@@ -2,6 +2,6 @@ import { Stage } from "./Stage";
 
 export interface CroppedImage {
     id: number;
-    image: Int8Array;
+    image: string;
     prediction: Stage;
 }

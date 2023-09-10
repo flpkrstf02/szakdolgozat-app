@@ -10,7 +10,7 @@
   <ion-item>
     <ion-card>
       <ion-card-content class="view-flower__main-container">
-        <ion-img class="view-flower__image" src="{{ flower.image }}" alt="Flowers"></ion-img>
+        <ion-img class="view-flower__image" src="data:image/jpg;base64,{{ flower.image }}" alt="Flowers"></ion-img>
       </ion-card-content>
     </ion-card>
   </ion-item>
@@ -21,7 +21,7 @@
   <ion-list formArrayName="croppedItem">
     <ion-card *ngFor="let item of croppedItem.controls" class="view-prediction__card">
       <ion-card-content class="view-prediction__content">
-        <ion-img class="view-prediction__image" src="{{ getUrl(item) }}" alt="cropped"></ion-img>
+        <ion-img class="view-prediction__image" src="data:image/jpg;base64,{{item.getRawValue()['image']}}" alt="cropped"></ion-img>
         <ion-radio-group class="view-prediction__radio-group" (ionChange)="radioGroupChange($event,item)" value="{{ getPrediction(item) }}">
           <ion-radio 
             *ngFor="let stage of stages" 

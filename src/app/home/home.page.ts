@@ -19,7 +19,7 @@ export class HomePage {
   refresh(ev: any) {
     setTimeout(() => {
       (ev as RefresherCustomEvent).detail.complete();
-    }, 30000);
+    }, 3000);
   }
 
   getFlowers(): Flower[] {
