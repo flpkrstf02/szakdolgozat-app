@@ -16,3 +16,29 @@
     <app-flower *ngFor="let flower of flowers" [flower]="flower"></app-flower>
   </ion-list>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>
+      <ion-item class="capture-item">
+        <ion-card>
+          <ion-card-content class="capture-content">
+            <div class="capture-content__row__up">
+              <div>
+                Capture time: {{ captureFrequency.hour }} h
+              </div>
+              <div>
+                <ion-button class="save-button" (click)="submit()">
+                  Save
+                </ion-button>
+              </div>
+            </div>
+            <div class="capture-content__row__down">
+              <ion-range aria-label="Range with ticks" (ionChange)="onIonChange($event)" [value]="captureFrequency.hour"
+                [ticks]="true" [snaps]="true" [min]="0" [max]="23"></ion-range>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

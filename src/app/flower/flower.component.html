@@ -2,10 +2,10 @@
   <ion-card>
     <ion-card-content class="flower-content" [ngClass]="flower.isOverrided ? 'flower-content__green' : 'flower-content__red'">
       <div *ngIf="flower.isOverrided" class="flower__text">
-        Felülbírálva
+        Overrrided
       </div>
       <div *ngIf="!flower.isOverrided" class="flower__text">
-        Felülbírálásra vár
+        Waiting for override
       </div>
       <ion-img class="flower__image" src="data:image/jpg;base64,{{this.flower.image}}" alt="Flowers" ></ion-img>
     </ion-card-content>
